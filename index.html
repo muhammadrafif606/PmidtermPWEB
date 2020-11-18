@@ -191,15 +191,27 @@
 </style>
 
 <body>
-<!--navigasi-->
-<div class="container-fluid navbar-expand-sm navbar-light" id="navigasi">
- <div class="collapse navbar-collapse">
-  <ul class="navbar-nav mr-auto">
-  <a class="navbar-brand" href="index.html"><i> airasia.com </i></a>
-  </ul>
-  <a class="navbar-nav navbar-text" href="aboutus.html" id="flex" style="color:"Gray"> About Us | </a>
-  <br>
-  <a class="navbar-nav navbar-text" href="contactUs.html" id="flex" style="color:"Gray"> Contact Us | </a>
+  <!--navigasi-->
+  <div class="container-fluid navbar-expand-sm navbar-light" id="navigasi">
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <a class="navbar-brand" href="index.html"><i> airasia.com </i></a>
+      </ul>
+      <a class="navbar-nav navbar-text" href="aboutus.html" id="flex" style="color: rgb(0, 0, 0)"> About Us | </a>
+      <br>
+      <a class="navbar-nav navbar-text" href="contactUs.html" id="flex" style="color: rgb(0, 0, 0)"> Contact Us | </a>
+      <br>
+      <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" display="inline-flex"
+        style="color: Gray">Our Product</a>
+      <div class="dropdown-menu">
+        <div id="airasia-dropdown-options-right-icon" class="icon">
+          <a class="dropdown-item" href="asuransi.html">Asuransi</a>
+          <a class="dropdown-item" href="jadwal.html">Jadwal</a>
+          <a class="dropdown-item" href="promo.html">Promo</a>
+        </div>
+      </div>
+    </div>
+  </div>
   <br>
 
   <!--carousel-->
@@ -271,27 +283,6 @@ Muhammad Rafif
         <form id="signup" method="post" action="">
           <div><span class="label">No Hp</span><input type="text" class="infobox form-control" name="age" /><span
               class="error"> Only numericals allowed</span></div>
-          <script>
-            $(document).ready(function () {
-              $('.error').hide();
-              $('.submit').click(function (event) {
-                var data = $('.infobox').val();
-                var len = data.length;
-                var c;
-                for (var i = 0; i < len; i++) {
-                  c = data.charAt(i).charCodeAt(0);
-                  if (c < 48 || c > 57) {
-                    $('.error').show();
-                    event.preventDefault();
-                    break;
-                  }
-                  else {
-                    $('.error').hide();
-                  }
-                }
-              });
-            });
-          </script>
         </form>
         <form>
           <span class="label">Kota Asal</span>
@@ -331,12 +322,25 @@ Muhammad Rafif
                   $('p.result').text('You have selected ' + $('select option: selected').text());
                 }
                 event.preventDefault();
+              } var data = $('.infobox').val();
+              var len = data.length;
+              var c;
+              for (var i = 0; i < len; i++) {
+                c = data.charAt(i).charCodeAt(0);
+                if (c < 48 || c > 57) {
+                  $('.error').show();
+                  event.preventDefault();
+                  break;
+                }
+                else {
+                  $('.error').hide();
+                }
               });
             });
           </script>
           <p>Tanggal Pergi :</p> <input type="text" id="datepicker">
-          <a class="submit" href="jadwal.html"></a>
-          <a href="jadwal.html"><input class="submit btn btn-danger" type="submit" value="Submit"></a>
+          <a inputmode="submit" class="submit btn btn-danger" value="submit" href="jadwal.html">submit
+          </a>
         </form>
       </div>
     </div>
@@ -382,7 +386,8 @@ Muhammad Rafif
           width="100%" height="180px">
         <a href="https://newsroom.airasia.com/news/2020/11/13/airasia-buka-5-rute-domestik-baru-terbang-mulai-desember">
           <b id="link-berita">AirAsia buka 5 ruter domestik baru, terbang mulai desember</b></a>
-        <p id="berita">AirAsia menjawab permintaan pasar Indonesia untuk menghadirkan layanan penerbangan yang aman</p>
+        <p id="berita">AirAsia menjawab permintaan pasar Indonesia untuk menghadirkan layanan penerbangan yang aman
+        </p>
       </div>
     </div>
   </div>
