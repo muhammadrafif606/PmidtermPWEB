@@ -1,0 +1,149 @@
+<html>
+
+<head>
+    <title>FormPesawat</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Datepicker - Restrict date range</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({ minDate: -20, maxDate: "+1M +10D" });
+        });
+    </script>
+    <style>
+        .label {
+            float: left;
+            width: 150px;
+        }
+
+        .infobox {
+            width: 150px;
+        }
+
+        .error {
+            color: red;
+            padding-left: 10px;
+        }
+
+        .submit {
+            margin-left: 150px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<!--
+Dibuat oleh
+Muhammad Rafif
+05211940000015 PWEB D
+-->
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <form id="signup" method="post" action="">
+                    <div><span class="label">Nama Penumpang</span><input type="text" class="infobox form-control"
+                            name="userid" /><span class="error"> This field cannot be blank</span></div>
+                    <script>
+                        $(document).ready(function () {
+                            $('.error').hide();
+                            $('.submit').click(function (event) {
+                                var data = $('.infobox').val();
+                                var len = data.length;
+                                if (len < 1) {
+                                    $('.error').show();
+                                    event.preventDefault();
+                                }
+                                else {
+                                    $('.error').hide();
+                                }
+                            });
+                        });
+                    </script>
+                </form>
+                <form id="signup" method="post" action="">
+                    <div><span class="label">No Hp</span><input type="text" class="infobox form-control" name="age" /><span
+                            class="error"> Only numericals allowed</span></div>
+                    <script>
+                        $(document).ready(function () {
+                            $('.error').hide();
+                            $('.submit').click(function (event) {
+                                var data = $('.infobox').val();
+                                var len = data.length;
+                                var c;
+                                for (var i = 0; i < len; i++) {
+                                    c = data.charAt(i).charCodeAt(0);
+                                    if (c < 48 || c > 57) {
+                                        $('.error').show();
+                                        event.preventDefault();
+                                        break;
+                                    }
+                                    else {
+                                        $('.error').hide();
+                                    }
+                                }
+                            });
+                        });
+                    </script>
+                </form>
+                <form>
+                    <span class="label">Kota Asal</span>
+                    <select id="KotaPergi" class="infobox form-control ">
+                        <option value="0">Pilih Kota</option>
+                        <option value="Jakarta">Jakarta</option>
+                        <option value="Denpasar">Denpasar</option>
+                        <option value="Surabaya">Surabaya</option>
+                        <option value="Yogyakarta">Yogyakarta</option>
+                        <option value="Medan">Medan</option>
+                    </select>
+                    <p class="error">You have not selected any Option</p>
+                    <p class="result"></p>
+                    <span class="label">Kota Tujuan</span>
+                    <select id="KotaTujuan" class="infobox form-control">
+                        <option value="0">Pilih Kota</option>
+                        <option value="Jakarta">Jakarta</option>
+                        <option value="Denpasar">Denpasar</option>
+                        <option value="Surabaya">Surabaya</option>
+                        <option value="Yogyakarta">Yogyakarta</option>
+                        <option value="Medan">Medan</option>
+                    </select>
+                    <p class="error">You have not selected any Option</p>
+                    <p class="result"></p>
+                    <script>
+                        $(document).ready(function () {
+                            $('.error').hide();
+                            $('.submit').click(function (event) {
+                                var count = $('select option:selected').val();
+                                if (count == 0) {
+                                    $('p.result').hide();
+                                    $('.error').show();
+                                }
+                                else {
+                                    $('.error').hide();
+                                    $('p.result').show();
+                                    $('p.result').text('You have selected ' + $('select option: selected').text());
+                                }
+                                event.preventDefault();
+                            });
+                        });
+                    </script>
+                    <p>Tanggal Pergi :</p> <input type="text" id="datepicker">
+                    <a class="submit" href="jadwal.html"></a>
+                    <a href="jadwal.html"><input class="submit btn btn-danger" type="submit" value="Submit"></a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
